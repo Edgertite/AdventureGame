@@ -32,7 +32,7 @@ public class ItemRoom extends Room{
     }
 
     // Returns a boolean indicating success at taking the Item . if the item is finite,
-    //it will run out. if its out it will return false.
+    //it will run out. If its out it will return false.
     public boolean takeItem(){
         if (isHere){
             if (isInfinite){
