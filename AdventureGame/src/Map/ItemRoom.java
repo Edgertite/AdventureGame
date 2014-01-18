@@ -21,6 +21,9 @@ public class ItemRoom extends Room{
         setExits(new ArrayList<Path>());
     }
 
+    
+    //line 25 test
+    
     public ItemRoom(String name, String desc, Item item, boolean isInfinite) {
         this.name = name;
         this.description = desc;
