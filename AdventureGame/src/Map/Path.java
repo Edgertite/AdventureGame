@@ -1,5 +1,6 @@
 package Map;
-
+//testing on desktop
+//still same
 public class Path {
     
 	// A Path is a connection between two rooms, a source Room and a target Room 
