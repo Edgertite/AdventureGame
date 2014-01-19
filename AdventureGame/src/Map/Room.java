@@ -10,12 +10,17 @@ public class Room{
 
     private ArrayList<Path> exits;
 
+    public Room(String name, String description) {
+        this.name = name;
+        this.description = description;
+        this.exits = new ArrayList<Path>();
+    }
 
 
     // setters and getters
         
-    public void setDescription(String newDesc) {
-        this.description = newDesc;
+    public void setDescription(String description) {
+        this.description = description;
     }
     
     // adds a path from this room
