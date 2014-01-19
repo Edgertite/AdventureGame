@@ -9,7 +9,6 @@ public class Path {
     private Room source;
     private Room target;
     private String direction;
-    private String description;
     
     public Path(Room source, Room target, String dir) {
         setSource(source);
