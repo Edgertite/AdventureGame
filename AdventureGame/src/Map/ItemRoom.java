@@ -21,12 +21,9 @@ public class ItemRoom extends Room{
     }
 
     public ItemRoom(String name, String description, Item item, boolean isInfinite){
-    	super(name, description);
-        this.item = item;
-        this.isHere = true;
-        this.mustTake = false;
-        this.isInfinite = isInfinite;
-        setExits(new ArrayList<Path>());
+    	this(name, description, item);
+    	this.isInfinite = isInfinite;
+    	
     }
 
     // Returns a boolean indicating success at taking the Item . if the item is finite,
