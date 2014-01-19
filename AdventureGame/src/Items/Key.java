@@ -6,7 +6,7 @@ public class Key extends Item{
 
     public Key(int id, String name, String Description, int code){
         this.id = id;
-        this.name = name;
+        this.setName(name);
         this.description = description;
         this.code = code;
     }

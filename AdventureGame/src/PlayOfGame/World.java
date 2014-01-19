@@ -178,6 +178,7 @@ public class World {
         System.out.println();
         System.out.println("For example, type 'look' to look around, or 'north' to move to");
         System.out.println("the north. ");
+        System.out.println("some commands include: help, inventory, look, quit, take, travel, use");
     }
     
     private void actionQuit() {

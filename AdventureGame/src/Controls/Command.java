@@ -6,6 +6,7 @@ import Map.Room;
 
 /* Class to gather general commands from the user.  Right now, it gets up to two word commands, such as 
    "look" and "take stapler".
+   The class also contains metrhods to interprut what the command mean, but those are only used in World
  */
 public class Command extends InputGather {
 
@@ -41,6 +42,16 @@ public class Command extends InputGather {
     //////// Action predicates
     //////// 
     
+    /// Command List
+    
+    private static String[] INVENTORY_words = {"inventory", "inv", "i"};
+    private static String[] LOOK_words = {"look", "gaze", "l"};
+    private static String[] TRAVEL_words = {"go", "travel", "venture", "walk", "amble", "enter"};
+    private static String[] QUIT_words = {"quit", "exit", "die", "uncle", "q"};
+    private static String[] HELP_words = {"help", "?"};
+    private static String[] TAKE_words = {"take", "grab", "t"};
+    private static String[] USE_wods = {"use", "activate", "drink", "wield", "u"};
+    
     // Methods whose names start with "is" report whether a certain type of command
     //  has been given -- that is, what the 'action' of the command is.  For instance, 
     //  "isQuit" reports whether the user's command is to quit.
@@ -54,26 +65,24 @@ public class Command extends InputGather {
     public boolean isQuit() {
         return firstWordIn( QUIT_words ) ;
     }
-
-    private static String[] QUIT_words = {"quit", "exit", "die", "uncle", "q"};
-    private static String[] HELP_words = {"help", "?"};
     
     
     /// player
-       
+
     public boolean isInventory() {
         return  firstWordIn( INVENTORY_words);
+    }
+    
+    public boolean isTake() {
+    	return firstWordIn TAKE_words);
     }
     
     public boolean isLookRoom() {
         return ( firstWordIn(LOOK_words) &&
                  secondWord == null );
     }
+
     
-    private static String[] INVENTORY_words = {"inventory", "inv", "i"};
-    private static String[] LOOK_words = {"look", "gaze", "l"};
-    
-   
     /// travel
     
     // this takes the Room so it can check the exits
@@ -92,14 +101,7 @@ public class Command extends InputGather {
         return secondWord;
     }
     
-    private static String[] TRAVEL_words = {"go", "travel", "venture", "walk", "amble", "enter"};
-    
-
-    
-
-    
     //// Some utility methods
-    
     
     private boolean firstWordIn(String[] words) {
         for (String word : words) {
