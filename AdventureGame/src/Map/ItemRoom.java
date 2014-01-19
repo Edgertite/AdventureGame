@@ -11,9 +11,8 @@ public class ItemRoom extends Room{
     private boolean isInfinite;
     private boolean mustTake;
 
-    public ItemRoom(String name, String desc, Item item){
-        this.name = name;
-        this.description = desc;
+    public ItemRoom(String name, String description, Item item){
+        super(name, description);
         this.item = item;
         this.isHere = true;
         this.mustTake = false;
@@ -21,9 +20,8 @@ public class ItemRoom extends Room{
         setExits(new ArrayList<Path>());
     }
 
-    public ItemRoom(String name, String desc, Item item, boolean isInfinite){
-        this.name = name;
-        this.description = desc;
+    public ItemRoom(String name, String description, Item item, boolean isInfinite){
+    	super(name, description);
         this.item = item;
         this.isHere = true;
         this.mustTake = false;
