@@ -10,12 +10,7 @@ public class Room{
 
     private ArrayList<Path> exits;
 
-    // constructor.
-    public Room(String name, String desc) {
-        this.name = name;
-        this.description = desc;
-        setExits(new ArrayList<Path>());
-    }
+
 
     // setters and getters
         
