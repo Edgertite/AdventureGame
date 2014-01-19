@@ -2,7 +2,7 @@ package PlayOfGame;
 
 import java.util.*;
 import java.io.*;
-import Map.Room;
+import Map.*;
 import Controls.Command;
 import Items.*;
 
@@ -31,35 +31,35 @@ public class World {
         thePlayer = new Player(this);
         
         //create and set up rooms
-        Room bedroom = new Room(
+        Room bedroom = new SimpleRoom(
           "bedroom" ,
           "You are in a strange bedroom.  The only reason you know it is a bedroom is \n" +
           "by the large, rumpled bed against the wall.  The pillow resembles a cement block, \n" +
           "and the sheets sandpaper.  The air is stale, and there isn't much of interest here.\n"
         );
         addRoom(bedroom);
-        Room pillow = new Room(
+        Room pillow = new SimpleRoom(
             "The pillow",
             "You walk over to the pillow and peek under it, you see a SMALL KEY! This might\n" +
             "be helpful later!"
         );
         addRoom(pillow);
         
-        Room corridor = new Room(
+        Room corridor = new SimpleRoom(
           "The corridor", 
           "You are in a corridor that connects to the kitchen and the bedroom.  The carpets are \n" +
           "stained, the light fixture in the ceiling is just a bare bulb, and there are several \n" +
           "locked doors along its length.");
         addRoom(corridor);
         
-        Room kitchen = new Room(
+        Room kitchen = new SimpleRoom(
             "The kitchen", 
             "You stand in south end of a large, well used kitchen.  At the east end is a \n" +
             "louly humming refrigerator with, possibly, the secret to your inner peace. \n"  +
             "A cat sits atop the fridge, looking at you in the way only a cat can.");
         addRoom(kitchen);
         
-        Room fridge = new Room(
+        Room fridge = new SimpleRoom(
             "The fridge",
             "You are in front of an ugly looking refrigerator, with several magnets \n" +
             "holding up old pizza delivery coupons, a scrap of paper with a phone number \n" +
