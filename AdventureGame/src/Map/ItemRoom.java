@@ -25,7 +25,45 @@ public class ItemRoom extends Room{
     	this.isInfinite = isInfinite;
     	
     }
+    
+    ////// Getter / Setters
+    /////
+    
+    public Item getItem() {
+ 		return item;
+ 	}
 
+ 	public void setItem(Item item) {
+ 		this.item = item;
+ 	}
+
+ 	public boolean isHere() {
+ 		return isHere;
+ 	}
+
+ 	public void setHere(boolean isHere) {
+ 		this.isHere = isHere;
+ 	}
+
+ 	public boolean isInfinite() {
+ 		return isInfinite;
+ 	}
+
+ 	public void setInfinite(boolean isInfinite) {
+ 		this.isInfinite = isInfinite;
+ 	}
+
+ 	public boolean isMustTake() {
+ 		return mustTake;
+ 	}
+
+ 	public void setMustTake(boolean mustTake) {
+ 		this.mustTake = mustTake;
+ 	}
+
+ 	
+
+    
     // Returns a boolean indicating success at taking the Item . if the item is finite,
     //it will run out. If its out it will return false.
     public boolean takeItem(){
@@ -39,7 +77,7 @@ public class ItemRoom extends Room{
         return false;
     }
 
-    //TODO: When the player tries to take the item, it calls its room's tryToMove method.
+ //TODO: When the player tries to take the item, it calls its room's tryToMove method.
     // This method returns null if unsuccessful. Otherwise, it returns the
     // room that the player has moved to.
     public Room tryToTake() {

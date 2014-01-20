@@ -46,8 +46,9 @@ public class Player {
                 actionInventory();
         } else if (turn.isTake()){
                 actionTake(turn);
+        } else if (turn.isUse()){
+        	actionUse(turn);
         } else {
-        
             System.out.println("Huh?");
         }
     }
@@ -91,14 +92,27 @@ public class Player {
     }
     
     public void actionTake(Command turn){
-            //String itemName = turn.getSecondWord();
-        //Room newRoom = currentRoom.tryToExit(itemName);
+        //String itemName = turn.getSecondWord();
         ItemRoom newRoom = (ItemRoom) currentRoom;
-            if (newRoom.getIsHere()) {
-            inventory.add(newRoom.getItem());
+            if (newRoom.isHere()) {
+            inventory[inventory.length+1] = ((ItemRoom) currentRoom).getItem();
         } else {
                 System.out.println("You can't go that direction from here.");
         }
+    }
+    
+    public void actionUse(Command turn){
+    	String itemName = turn.getSecondWord();
+    	loop:
+    	for (Item item : inventory) {
+    		if (item.getName() == itemName){
+    			item.use(this);
+    			return;
+    		}
+    	}
+    	
+    	System.out.println("You don't have that item.");
+    	
     }
     
     

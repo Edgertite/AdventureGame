@@ -22,6 +22,7 @@ public class World {
     }
 
     
+    
     //////
     ////// Setup (populate the world)
     //////
@@ -29,6 +30,16 @@ public class World {
     public World() {
         rooms = new ArrayList<Room>();
         thePlayer = new Player(this);
+        
+        
+      //create items
+        Item KEY = new Key(
+            1,
+            "KEY",
+            "I think this key would fit the lock to the bedroom.",
+            12345678
+        );
+        
         
         //create and set up rooms
         Room bedroom = new Room(
@@ -38,10 +49,12 @@ public class World {
           "and the sheets sandpaper. The air is stale, and there isn't much of interest here.\n"
         );
         addRoom(bedroom);
-        Room pillow = new Room(
+        Room pillow = new ItemRoom(
             "The pillow",
-            "You walk over to the pillow and peek under it, you see a SMALL KEY! This might\n" +
-            "be helpful later!"
+            "You walk over to the pillow and peek under it, you see a KEY! This might\n" +
+            "be helpful later!",
+            KEY,
+            false
         );
         addRoom(pillow);
         
@@ -77,13 +90,7 @@ public class World {
         kitchen.addExit(fridge, "east");
         fridge.addExit(kitchen, "kitchen");
         
-        //create items
-        Item name = new Key(
-            1,
-            "small key",
-            "I think this key would fit the lock to the bedroom.",
-            12345678
-        );
+        
 
         // set current position
         setCurrentRoom(bedroom);

@@ -50,7 +50,7 @@ public class Command extends InputGather {
     private static String[] QUIT_words = {"quit", "exit", "die", "uncle", "q"};
     private static String[] HELP_words = {"help", "?"};
     private static String[] TAKE_words = {"take", "grab", "t"};
-    private static String[] USE_wods = {"use", "activate", "drink", "wield", "u"};
+    private static String[] USE_words = {"use", "activate", "drink", "wield", "u"};
     
     // Methods whose names start with "is" report whether a certain type of command
     // has been given -- that is, what the 'action' of the command is. For instance,
@@ -70,11 +70,15 @@ public class Command extends InputGather {
     /// player
 
     public boolean isInventory() {
-        return firstWordIn( INVENTORY_words);
+        return firstWordIn(INVENTORY_words);
     }
     
     public boolean isTake() {
-            return firstWordIn TAKE_words);
+            return firstWordIn(TAKE_words);
+    }
+    
+    public boolean isUse() {
+    	return firstWordIn(USE_words);
     }
     
     public boolean isLookRoom() {
@@ -97,7 +101,7 @@ public class Command extends InputGather {
         return false;
     }
     
-    public String getDirectionReference() {
+    public String getSecondWord() {
         return secondWord;
     }
     
