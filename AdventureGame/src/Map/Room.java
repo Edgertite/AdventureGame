@@ -47,8 +47,8 @@ public class Room{
         return true;
     }
     
-    // Returns a boolean indicating a successful exit.  This version
-    //  does nothing, but subclasses might override this.
+    // Returns a boolean indicating a successful exit. This version
+    // does nothing, but subclasses might override this.
     public boolean exitRoom() {
         return true;
     }
@@ -60,7 +60,7 @@ public class Room{
         //check if this is a valid direction
         Path path = getExit(direction);
         if (path != null) {
-            if (exitRoom())  {            
+            if (exitRoom()) {
                 return path.travelDestination();
             }
         }
@@ -69,7 +69,7 @@ public class Room{
 
     
     // returns the path object if the argument is a direction to that path.
-    //  if no such direction exists, returns null.
+    // if no such direction exists, returns null.
     public Path getExit (String possibleExit) {
         for (Path p: getExits()) {
             if (p.getDirection().equalsIgnoreCase(possibleExit)) {
@@ -101,13 +101,13 @@ public class Room{
         }
     }
 
-	public ArrayList<Path> getExits() {
-		return exits;
-	}
+        public ArrayList<Path> getExits() {
+                return exits;
+        }
 
-	public void setExits(ArrayList<Path> exits) {
-		this.exits = exits;
-	}
+        public void setExits(ArrayList<Path> exits) {
+                this.exits = exits;
+        }
  
 
 
