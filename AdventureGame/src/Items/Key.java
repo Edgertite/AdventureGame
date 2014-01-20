@@ -4,11 +4,8 @@ import PlayOfGame.Player;
 
 public class Key extends Item{
 
-    private int code;
-
-    public Key(int id, String name, String description, int code){
-        super(id, name, description);
-        this.code = code;
+    public Key(String name, String description){
+        super(name, description);
     }
 
 

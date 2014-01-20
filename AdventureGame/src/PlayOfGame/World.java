@@ -34,16 +34,13 @@ public class World {
         
       //create items
         Item KEY = new Key(
-            1,
-            "KEY",
-            "I think this key would fit the lock to the bedroom.",
-            123
+            "key",
+            "I think this key would fit the lock to the bedroom."
         );
         
         Item CHEESE = new Goal(
-        	2,
-        	"Cheese",
-        	"WOW! this looks like the secret to my inner peace! maybe I should eat this..."
+        	"cheese",
+        	"WOW! this looks like the secret to my inner peace! Maybe I should eat this..."
         );
         
         

@@ -5,19 +5,17 @@ import PlayOfGame.Player;
 public class Item
 {
     // instance variables - replace the example below with your own
-    protected int id;
     private String name;
     protected String description;
     
-    public Item(int id, String name, String description){
-    	this.id = id;
+    public Item(String name, String description){
     	this.name = name;
     	this.description = description;
     }
 
     
     public boolean use(Player player){
-    	//TODO finish use(Player player)
+    	System.out.print(description);
     	return true;
     }
 
@@ -30,4 +28,17 @@ public class Item
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+
 }

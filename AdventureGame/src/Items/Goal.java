@@ -5,8 +5,8 @@ import PlayOfGame.World;
 
 public class Goal extends Item{
 	
-	public Goal(int id, String name, String description){
-		super(id, name, description);
+	public Goal(String name, String description){
+		super(name, description);
 	}
 
 	@Override
