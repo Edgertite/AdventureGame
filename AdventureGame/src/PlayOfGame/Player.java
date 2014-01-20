@@ -1,7 +1,8 @@
 package PlayOfGame;
 
 import java.util.ArrayList;
-import Map.Room;
+
+import Map.*;
 import Controls.Command;
 import Items.Item;
 
@@ -31,7 +32,7 @@ public class Player {
     }
     
     //////
-    //////   Handle Commands
+    ////// Handle Commands
     //////
     
     public void dispatch(Command turn) {
@@ -42,8 +43,11 @@ public class Player {
             actionTravel(turn);
 
         } else if (turn.isInventory()){
-        	actionInventory();
+                actionInventory();
+        } else if (turn.isTake()){
+                actionTake(turn);
         } else {
+        
             System.out.println("Huh?");
         }
     }
@@ -51,7 +55,7 @@ public class Player {
 
     
     public void actionTravel(Command turn) {
-        String newDir = turn.getDirectionReference();
+        String newDir = turn.getSecondWord();
         Room newRoom = currentRoom.tryToExit(newDir);
         if (newRoom == null) {
             System.out.println("You can't go that direction from here.");
@@ -70,12 +74,32 @@ public class Player {
     }
     
     public void actionInventory() {
-    	System.out.print("You open your bag and find");
-    	for (Item item : inventory) {
-    		System.out.print(", " + item.getName());
-    	}
+            int i = 0;
+        System.out.print("You open your bag and find a ");
+        for (Item item : inventory) {
+            System.out.print(item.getName());
+            i++;
+            if (i != inventory.length) {
+                System.out.print(", ");
+            } else {
+                System.out.print(".");
+            }
+            if (i == (inventory.length - 1)) {
+                       System.out.print("and ");
+            }
+        }
     }
     
+    public void actionTake(Command turn){
+            //String itemName = turn.getSecondWord();
+        //Room newRoom = currentRoom.tryToExit(itemName);
+        ItemRoom newRoom = (ItemRoom) currentRoom;
+            if (newRoom.getIsHere()) {
+            inventory.add(newRoom.getItem());
+        } else {
+                System.out.println("You can't go that direction from here.");
+        }
+    }
     
     
 
