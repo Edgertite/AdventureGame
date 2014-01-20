@@ -44,7 +44,7 @@ public class Command extends InputGather {
     
     /// Command List
     
-    private static String[] INVENTORY_words = {"inventory", "inv", "i"};
+    private static String[] INVENTORY_words = {"inventory", "inv", "i", "bag"};
     private static String[] LOOK_words = {"look", "gaze", "l"};
     private static String[] TRAVEL_words = {"go", "travel", "venture", "walk", "amble", "enter"};
     private static String[] QUIT_words = {"quit", "exit", "die", "uncle", "q"};

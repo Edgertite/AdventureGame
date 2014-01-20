@@ -13,7 +13,7 @@ public class World {
     private ArrayList<Room> rooms;
     private Player thePlayer;
     
-    private boolean isPlaying;
+    public static boolean isPlaying;
 
     
     public static void main(String[] args) {
@@ -37,7 +37,13 @@ public class World {
             1,
             "KEY",
             "I think this key would fit the lock to the bedroom.",
-            12345678
+            123
+        );
+        
+        Item CHEESE = new Goal(
+        	2,
+        	"Cheese",
+        	"WOW! this looks like the secret to my inner peace! maybe I should eat this..."
         );
         
         
@@ -53,8 +59,7 @@ public class World {
             "The pillow",
             "You walk over to the pillow and peek under it, you see a KEY! This might\n" +
             "be helpful later!",
-            KEY,
-            false
+            KEY
         );
         addRoom(pillow);
         
@@ -68,27 +73,28 @@ public class World {
         Room kitchen = new Room(
             "The kitchen",
             "You stand in south end of a large, well used kitchen. At the east end is a \n" +
-            "louly humming refrigerator with, possibly, the secret to your inner peace. \n" +
+            "loudly humming refrigerator with, possibly, the secret to your inner peace. \n" +
             "A cat sits atop the fridge, looking at you in the way only a cat can.");
         addRoom(kitchen);
         
-        Room fridge = new Room(
+        Room fridge = new ItemRoom(
             "The fridge",
-            "You are in front of an ugly looking refrigerator, with several magnets \n" +
-            "holding up old pizza delivery coupons, a scrap of paper with a phone number \n" +
-            "for someone named Guiseppe, and many, many stains."
+            "You open up the ugly looking refrigerator, and see what you where lookin for inside, \n" +
+            "a piece of CHEESE you most definetly should mooch this CHEESE from whoever it once \n" +
+            "belonged to. After all you never know... it just may hold the secret to your inner peace.",
+            CHEESE
         );
         addRoom(fridge);
         
         //connect the rooms
-        bedroom.addExit(corridor, "south");
+        bedroom.addExit(corridor, "door");
         bedroom.addExit(pillow, "pillow");
-        pillow.addExit(corridor, "back");
-        corridor.addExit(bedroom, "north");
-        corridor.addExit(kitchen, "south");
-        kitchen.addExit(corridor, "north");
-        kitchen.addExit(fridge, "east");
-        fridge.addExit(kitchen, "kitchen");
+        pillow.addExit(bedroom, "back");
+        corridor.addExit(bedroom, "bedroom");
+        corridor.addExit(kitchen, "kitchen");
+        kitchen.addExit(corridor, "corridor");
+        kitchen.addExit(fridge, "fridge");
+        fridge.addExit(kitchen, "back");
         
         
 
@@ -150,7 +156,7 @@ public class World {
     }
     
     private void printGoodBye() {
-        System.out.println("Bye!");
+        System.out.println("Goodbye... Forever...");        
     }
  
     

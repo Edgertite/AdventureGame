@@ -26,6 +26,11 @@ public class ItemRoom extends Room{
     	
     }
     
+    @Override
+    public boolean hasItem(){
+    	return true;
+    }
+    
     ////// Getter / Setters
     /////
     

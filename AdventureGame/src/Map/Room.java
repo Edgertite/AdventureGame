@@ -15,6 +15,10 @@ public class Room{
         this.description = description;
         this.exits = new ArrayList<Path>();
     }
+    
+    public boolean hasItem(){
+    	return false;
+    }
 
 
     // setters and getters

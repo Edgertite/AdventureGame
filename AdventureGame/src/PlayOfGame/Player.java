@@ -11,16 +11,17 @@ public class Player {
 
     private World myWorld;
     private Room currentRoom;
-    private String myName = "";
-    private Item[] inventory;
+    private String name = "";
+    private ArrayList<Item> inventory;
     
     public Player(World world) {
         myWorld = world;
+        inventory = new ArrayList<Item>(0);
     }
     
     public Player(String name, World world) {
-        myName = name;
-        myWorld = world;
+        this(world);
+        this.name = name;
     }
 
     public void setCurrentRoom(Room room) {
@@ -75,37 +76,46 @@ public class Player {
     }
     
     public void actionInventory() {
-            int i = 0;
-        System.out.print("You open your bag and find a ");
-        for (Item item : inventory) {
-            System.out.print(item.getName());
-            i++;
-            if (i != inventory.length) {
-                System.out.print(", ");
-            } else {
-                System.out.print(".");
-            }
-            if (i == (inventory.length - 1)) {
-                       System.out.print("and ");
-            }
+        int i = 0;
+        if (inventory == null){
+        	System.out.println("You open your bag to find nothing.i");
+        } else {
+        	System.out.print("You open your bag and find a ");
+        	for (Item item : inventory) {
+        		System.out.print(item.getName());
+        		i++;
+        		if (i != inventory.size()) {
+        			System.out.print(", ");
+        		} else {
+        			System.out.print(".");
+        		}
+        		if (i == (inventory.size() - 1)) {
+                    System.out.print("and ");
+        		}
+        	}
         }
     }
     
     public void actionTake(Command turn){
         //String itemName = turn.getSecondWord();
-        ItemRoom newRoom = (ItemRoom) currentRoom;
-            if (newRoom.isHere()) {
-            inventory[inventory.length+1] = ((ItemRoom) currentRoom).getItem();
-        } else {
-                System.out.println("You can't go that direction from here.");
-        }
+    	if (currentRoom.hasItem()){
+    		if (((ItemRoom) currentRoom).isHere()) {
+            	((ItemRoom) currentRoom).setHere(false);
+            	inventory.add(((ItemRoom) currentRoom).getItem());
+            	System.out.println("You add the "+((ItemRoom) currentRoom).getItem().getName()+ " to your bag");
+            } else {
+                System.out.println("There is nothing left to take.");
+            }
+    	} else {
+    		System.out.println("It dosn't look like there is anything to take.");
+    	}
     }
     
     public void actionUse(Command turn){
-    	String itemName = turn.getSecondWord();
-    	loop:
     	for (Item item : inventory) {
-    		if (item.getName() == itemName){
+    		System.out.println(item.getName()+".");
+    		System.out.println(turn.getSecondWord()+".");
+    		if (item.getName().equals(turn.getSecondWord())){
     			item.use(this);
     			return;
     		}
