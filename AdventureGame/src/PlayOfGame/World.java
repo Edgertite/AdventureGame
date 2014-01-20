@@ -33,9 +33,9 @@ public class World {
         //create and set up rooms
         Room bedroom = new Room(
           "bedroom" ,
-          "You are in a strange bedroom.  The only reason you know it is a bedroom is \n" +
-          "by the large, rumpled bed against the wall.  The pillow resembles a cement block, \n" +
-          "and the sheets sandpaper.  The air is stale, and there isn't much of interest here.\n"
+          "You are in a strange bedroom. The only reason you know it is a bedroom is \n" +
+          "by the large, rumpled bed against the wall. The pillow resembles a cement block, \n" +
+          "and the sheets sandpaper. The air is stale, and there isn't much of interest here.\n"
         );
         addRoom(bedroom);
         Room pillow = new Room(
@@ -46,16 +46,16 @@ public class World {
         addRoom(pillow);
         
         Room corridor = new Room(
-          "The corridor", 
-          "You are in a corridor that connects to the kitchen and the bedroom.  The carpets are \n" +
+          "The corridor",
+          "You are in a corridor that connects to the kitchen and the bedroom. The carpets are \n" +
           "stained, the light fixture in the ceiling is just a bare bulb, and there are several \n" +
           "locked doors along its length.");
         addRoom(corridor);
         
         Room kitchen = new Room(
-            "The kitchen", 
-            "You stand in south end of a large, well used kitchen.  At the east end is a \n" +
-            "louly humming refrigerator with, possibly, the secret to your inner peace. \n"  +
+            "The kitchen",
+            "You stand in south end of a large, well used kitchen. At the east end is a \n" +
+            "louly humming refrigerator with, possibly, the secret to your inner peace. \n" +
             "A cat sits atop the fridge, looking at you in the way only a cat can.");
         addRoom(kitchen);
         
@@ -116,7 +116,7 @@ public class World {
         // ... and start playing!
         while (isPlaying) {
             
-            Command turn = new Command();    // read user input
+            Command turn = new Command(); // read user input
             dispatch(turn);
         }
         
@@ -134,8 +134,8 @@ public class World {
         
         System.out.println(
              "After a long night out studying the vargaries of Java programming, \n" +
-             "you wake up in a strange room.  Perhaps this really is your bedroom, \n" +
-             "and you are just suffering from another bout of amnesia...  or perhaps \n" +
+             "you wake up in a strange room. Perhaps this really is your bedroom, \n" +
+             "and you are just suffering from another bout of amnesia... or perhaps \n" +
              "not..."
         );
         System.out.println();
@@ -159,7 +159,7 @@ public class World {
     /////
     
     // handle administrative commands, or dispatch to player to handle gameplay commands
-    private void dispatch(Command turn) {     
+    private void dispatch(Command turn) {
         if (turn.isHelp()) {
             actionHelp();
         } else if (turn.isQuit()) {
@@ -187,5 +187,4 @@ public class World {
     
     
     
-}  // end World class
-
+} // end World class

@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import Map.Room;
 
 
-/* Class to gather general commands from the user.  Right now, it gets up to two word commands, such as 
-   "look" and "take stapler".
-   The class also contains metrhods to interprut what the command mean, but those are only used in World
- */
+/* Class to gather general commands from the user. Right now, it gets up to two word commands, such as
+"look" and "take stapler".
+The class also contains metrhods to interprut what the command mean, but those are only used in World
+*/
 public class Command extends InputGather {
 
-    // these two are just conveniences.  Could use inputWords from parent class..
+    // these two are just conveniences. Could use inputWords from parent class..
     private String firstWord = null;
     private String secondWord = null;
 
@@ -27,11 +27,11 @@ public class Command extends InputGather {
             // its empty, they should try again...
             printPrompt();
             gatherInput();
-            processInput();    // recursion!
+            processInput(); // recursion!
         }
         if (inputWords.size() >= 1) {
             firstWord = inputWords.get(0);
-        } 
+        }
         if (inputWords.size() >=2) {
             secondWord = inputWords.get(1);
         }
@@ -40,7 +40,7 @@ public class Command extends InputGather {
 
     
     //////// Action predicates
-    //////// 
+    ////////
     
     /// Command List
     
@@ -53,10 +53,10 @@ public class Command extends InputGather {
     private static String[] USE_wods = {"use", "activate", "drink", "wield", "u"};
     
     // Methods whose names start with "is" report whether a certain type of command
-    //  has been given -- that is, what the 'action' of the command is.  For instance, 
-    //  "isQuit" reports whether the user's command is to quit.
+    // has been given -- that is, what the 'action' of the command is. For instance,
+    // "isQuit" reports whether the user's command is to quit.
     
-    ///  Administrative 
+    /// Administrative
     
     public boolean isHelp() {
         return firstWordIn( HELP_words ) ;
@@ -70,11 +70,11 @@ public class Command extends InputGather {
     /// player
 
     public boolean isInventory() {
-        return  firstWordIn( INVENTORY_words);
+        return firstWordIn( INVENTORY_words);
     }
     
     public boolean isTake() {
-    	return firstWordIn TAKE_words);
+            return firstWordIn TAKE_words);
     }
     
     public boolean isLookRoom() {
@@ -87,14 +87,14 @@ public class Command extends InputGather {
     
     // this takes the Room so it can check the exits
     public boolean isTravel(Room room) {
-        if ( firstWordIn( TRAVEL_words ) )  {
+        if ( firstWordIn( TRAVEL_words ) ) {
             return true;
         }
-        if ( secondWord == null  &&  (room.getExit(firstWord) != null) ) {
+        if ( secondWord == null && (room.getExit(firstWord) != null) ) {
             secondWord = firstWord;
             return true;
         }
-        return false;      
+        return false;
     }
     
     public String getDirectionReference() {
