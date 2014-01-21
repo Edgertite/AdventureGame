@@ -9,39 +9,29 @@ import Items.Item;
 
 
 public class Player extends Character{
-
-    private World myWorld;
-    private Room currentRoom;
-    private String name = "";
-    public ArrayList<Item> inventory;
     
+	//
     public Player(World world) {
-        myWorld = world;
+        //myWorld = world;
         inventory = new ArrayList<Item>(0);
     }
     
+    //may remove later as it does the same as the above
     public Player(String name, World world) {
         this(world);
-        this.name = name;
+        //this.name = name;
     }
-
-    public void setCurrentRoom(Room room) {
-        currentRoom = room;
-    }
-    
-    public Room getCurrentRoom() {
-        return( currentRoom );
-    }
-    
+     
     //////
     ////// Handle Commands
     //////
-    
+
+    //
     public void dispatch(Command turn) {
         if (turn.isLookRoom()) {
             actionLookRoom();
             
-        } else if (turn.isTravel(currentRoom)) {
+        } else if (turn.isTravel(getCurrentRoom())) {
             actionTravel(turn);
 
         } else if (turn.isInventory()){
@@ -55,27 +45,27 @@ public class Player extends Character{
         }
     }
 
-
-    
+    //
     public void actionTravel(Command turn) {
         String newDir = turn.getSecondWord();
-        Room newRoom = currentRoom.tryToExit(newDir);
+        Room newRoom = getCurrentRoom().tryToExit(newDir);
         if (newRoom == null) {
             System.out.println("You can't go that direction from here.");
         } else {
             if (newRoom.enterRoom()) {
-                currentRoom = newRoom;
+            	setCurrentRoom(newRoom);
             } else {
                 System.out.println("You can't go there.");
             }
         }
     }
 
-
+    //
     public void actionLookRoom() {
-        currentRoom.printDescription();
+        getCurrentRoom().printDescription();
     }
     
+    //
     public void actionInventory() {
         int i = 0;
         if (inventory == null){
@@ -97,14 +87,15 @@ public class Player extends Character{
         }
     }
     
+    //
     public void actionTake(Command turn){
         //String itemName = turn.getSecondWord();
-    	if (currentRoom.hasItem()){
-    		if (((ItemRoom) currentRoom).isHere()) {
-            	((ItemRoom) currentRoom).setHere(false);
-            	inventory.add(((ItemRoom) currentRoom).getItem());
-            	System.out.println(((ItemRoom) currentRoom).getItem().getDescription());
-            	System.out.println("You add the "+((ItemRoom) currentRoom).getItem().getName()+ " to your bag");
+    	if (getCurrentRoom().hasItem()){
+    		if (((ItemRoom) getCurrentRoom()).isHere()) {
+            	((ItemRoom) getCurrentRoom()).setHere(false);
+            	inventory.add(((ItemRoom) getCurrentRoom()).getItem());
+            	System.out.println(((ItemRoom) getCurrentRoom()).getItem().getDescription());
+            	System.out.println("You add the "+((ItemRoom) getCurrentRoom()).getItem().getName()+ " to your bag");
             } else {
                 System.out.println("There is nothing left to take.");
             }
@@ -113,6 +104,7 @@ public class Player extends Character{
     	}
     }
     
+    //
     public void actionUse(Command turn){
     	for (Item item : inventory) {
     		System.out.println(item.getName()+".");
@@ -121,15 +113,7 @@ public class Player extends Character{
     			item.use(this);
     			return;
     		}
-    	}
-    	
+    	}	
     	System.out.println("You don't have that item.");
-    	
     }
-    
-    
-
-
-
-
 }
