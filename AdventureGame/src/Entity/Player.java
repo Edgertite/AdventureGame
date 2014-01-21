@@ -13,7 +13,7 @@ public class Player extends Character{
 	//
     public Player(World world) {
         //myWorld = world;
-        inventory = new ArrayList<Item>(0);
+        setInventory(new ArrayList<Item>(0));
     }
     
     //may remove later as it does the same as the above
@@ -68,19 +68,19 @@ public class Player extends Character{
     //
     public void actionInventory() {
         int i = 0;
-        if (inventory == null){
+        if (getInventory() == null){
         	System.out.println("You open your bag to find nothing.i");
         } else {
         	System.out.print("You open your bag and find a ");
-        	for (Item item : inventory) {
+        	for (Item item : getInventory()) {
         		System.out.print(item.getName());
         		i++;
-        		if (i != inventory.size()) {
+        		if (i != getInventory().size()) {
         			System.out.print(", ");
         		} else {
         			System.out.print(".");
         		}
-        		if (i == (inventory.size() - 1)) {
+        		if (i == (getInventory().size() - 1)) {
                     System.out.print("and ");
         		}
         	}
@@ -93,7 +93,7 @@ public class Player extends Character{
     	if (getCurrentRoom().hasItem()){
     		if (((ItemRoom) getCurrentRoom()).isHere()) {
             	((ItemRoom) getCurrentRoom()).setHere(false);
-            	inventory.add(((ItemRoom) getCurrentRoom()).getItem());
+            	getInventory().add(((ItemRoom) getCurrentRoom()).getItem());
             	System.out.println(((ItemRoom) getCurrentRoom()).getItem().getDescription());
             	System.out.println("You add the "+((ItemRoom) getCurrentRoom()).getItem().getName()+ " to your bag");
             } else {
@@ -106,7 +106,7 @@ public class Player extends Character{
     
     //
     public void actionUse(Command turn){
-    	for (Item item : inventory) {
+    	for (Item item : getInventory()) {
     		System.out.println(item.getName()+".");
     		System.out.println(turn.getSecondWord()+".");
     		if (item.getName().equals(turn.getSecondWord())){

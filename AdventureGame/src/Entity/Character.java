@@ -10,7 +10,7 @@ public class Character {
 	private int health;
 	private Room currentRoom;
     private String name = "";
-    public ArrayList<Item> inventory;
+    private ArrayList<Item> inventory;
     private String description;
     
     
