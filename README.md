@@ -42,8 +42,9 @@ Others may have contributed parts to this project, but the members of The Gitter
         }
         
         // follow this pattern for methods
-        // takes health away fron target in amout equal to damage of attacker
         // include a line for a comment even if you don't write a comment
+        
+        // takes health away from target in an amount equal to damage of attacker
         public void attack(Character target) {
             target.setHealth(target.getHealth()-damage);
         }
