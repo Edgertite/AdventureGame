@@ -27,6 +27,7 @@ public class InputGather {
         gatherInput();
     }
 
+    //TODO alow for second word to have a spase and change bedroomKey to bedroom key and make it work.
     // this set inputString and inputWords
     public void gatherInput() {
         inputString = InputGather.rawInput.nextLine();  // get the line of user input
