@@ -102,6 +102,7 @@ public class Player {
     		if (((ItemRoom) currentRoom).isHere()) {
             	((ItemRoom) currentRoom).setHere(false);
             	inventory.add(((ItemRoom) currentRoom).getItem());
+            	System.out.println(((ItemRoom) currentRoom).getItem().getDescription());
             	System.out.println("You add the "+((ItemRoom) currentRoom).getItem().getName()+ " to your bag");
             } else {
                 System.out.println("There is nothing left to take.");
