@@ -56,7 +56,7 @@ public class Room{
         Path path = getExit(direction);
         if (path != null) {
             if (exitRoom()) {
-                return path.travelDestination();
+                return path.getTarget();
             }
         }
         return null;

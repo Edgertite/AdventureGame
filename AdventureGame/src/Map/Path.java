@@ -15,11 +15,9 @@ public class Path {
         setTarget(target);
         setDirection(dir);
     }
+    
+    
 
-    // returns the Room that the player traveling this path arrives at
-    public Room travelDestination() {
-        return target;
-    }
     
     // source Room setter
     public void setSource(Room source) {
