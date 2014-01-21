@@ -4,6 +4,7 @@ import java.util.*;
 import java.io.*;
 import Map.*;
 import Controls.Command;
+import Entity.Player;
 import Items.*;
 
 

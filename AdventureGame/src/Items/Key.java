@@ -1,7 +1,7 @@
 package Items;
 
+import Entity.Player;
 import Map.Room;
-import PlayOfGame.Player;
 
 public class Key extends Item{
 

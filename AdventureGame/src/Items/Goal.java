@@ -1,6 +1,6 @@
 package Items;
 
-import PlayOfGame.Player;
+import Entity.Player;
 import PlayOfGame.World;
 
 public class Goal extends Item{

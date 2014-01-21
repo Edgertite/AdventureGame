@@ -1,13 +1,14 @@
-package PlayOfGame;
+package Entity;
 
 import java.util.ArrayList;
 
 import Map.*;
+import PlayOfGame.World;
 import Controls.Command;
 import Items.Item;
 
 
-public class Player {
+public class Player extends Character{
 
     private World myWorld;
     private Room currentRoom;

@@ -1,6 +1,6 @@
 package Items;
 
-import PlayOfGame.Player;
+import Entity.Player;
 
 public class Item
 {
