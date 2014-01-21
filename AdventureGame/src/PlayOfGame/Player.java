@@ -12,7 +12,7 @@ public class Player {
     private World myWorld;
     private Room currentRoom;
     private String name = "";
-    private ArrayList<Item> inventory;
+    public ArrayList<Item> inventory;
     
     public Player(World world) {
         myWorld = world;

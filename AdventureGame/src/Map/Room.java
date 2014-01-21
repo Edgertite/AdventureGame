@@ -28,8 +28,8 @@ public class Room{
     }
     
     // adds a path from this room
-    public void addExit(Room target, String dir) {
-        Path path = new Path(this, target, dir);
+    public void addExit(Room target, String exitName) {
+        Path path = new Path(this, target, exitName);
         getExits().add(path);
     }
 

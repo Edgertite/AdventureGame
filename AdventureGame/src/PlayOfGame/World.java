@@ -32,11 +32,6 @@ public class World {
         thePlayer = new Player(this);
         
         
-      //create items
-        Item KEY = new Key(
-            "key",
-            "I think this key would fit the lock to the bedroom."
-        );
         
         Item CHEESE = new Goal(
         	"cheese",
@@ -44,7 +39,7 @@ public class World {
         );
         
         
-        //create and set up rooms
+        //create and set up rooms / items
         Room bedroom = new Room(
           "bedroom" ,
           "You are in a strange bedroom. The only reason you know it is a bedroom is \n" +
@@ -52,6 +47,22 @@ public class World {
           "and the sheets sandpaper. The air is stale, and there isn't much of interest here.\n"
         );
         addRoom(bedroom);
+
+        Room corridor = new Room(
+          "The corridor",
+          "You are in a corridor that connects to the kitchen and the bedroom. The carpets are \n" +
+          "stained, the light fixture in the ceiling is just a bare bulb, and there are several \n" +
+          "locked doors along its length.");
+        addRoom(corridor);
+        
+        Item KEY = new Key(
+                "key",
+                "I think this key would fit the lock to the bedroom.",
+                bedroom,
+                corridor,
+                "door"
+            );
+        
         Room pillow = new ItemRoom(
             "The pillow",
             "You walk over to the pillow and peek under it, you see a KEY! This might\n" +
@@ -60,12 +71,6 @@ public class World {
         );
         addRoom(pillow);
         
-        Room corridor = new Room(
-          "The corridor",
-          "You are in a corridor that connects to the kitchen and the bedroom. The carpets are \n" +
-          "stained, the light fixture in the ceiling is just a bare bulb, and there are several \n" +
-          "locked doors along its length.");
-        addRoom(corridor);
         
         Room kitchen = new Room(
             "The kitchen",
@@ -84,7 +89,7 @@ public class World {
         addRoom(fridge);
         
         //connect the rooms
-        bedroom.addExit(corridor, "door");
+        //bedroom.addExit(corridor, "door");     //this exit requires the key
         bedroom.addExit(pillow, "pillow");
         pillow.addExit(bedroom, "back");
         corridor.addExit(bedroom, "bedroom");
