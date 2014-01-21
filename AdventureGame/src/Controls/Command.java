@@ -3,10 +3,9 @@ package Controls;
 import java.util.ArrayList;
 import Map.Room;
 
-
 /* Class to gather general commands from the user. Right now, it gets up to two word commands, such as
 "look" and "take stapler".
-The class also contains metrhods to interprut what the command mean, but those are only used in World
+The class also contains methods to interpret what the command mean, but those are only used in World
 */
 public class Command extends InputGather {
 
@@ -14,7 +13,7 @@ public class Command extends InputGather {
     private String firstWord = null;
     private String secondWord = null;
 
-    // The constructor3
+    // The constructor
     public Command() {
         super();
         processInput();
@@ -56,38 +55,41 @@ public class Command extends InputGather {
     // has been given -- that is, what the 'action' of the command is. For instance,
     // "isQuit" reports whether the user's command is to quit.
     
-    /// Administrative
+    ////// Commands
+    /////
     
+    /// IS______
+    
+    //
     public boolean isHelp() {
         return firstWordIn( HELP_words ) ;
     }
     
+    //
     public boolean isQuit() {
         return firstWordIn( QUIT_words ) ;
     }
-    
-    
-    /// player
 
+    //
     public boolean isInventory() {
         return firstWordIn(INVENTORY_words);
     }
     
+    //
     public boolean isTake() {
             return firstWordIn(TAKE_words);
     }
     
+    //
     public boolean isUse() {
     	return firstWordIn(USE_words);
     }
     
+    //
     public boolean isLookRoom() {
         return ( firstWordIn(LOOK_words) &&
                  secondWord == null );
     }
-
-    
-    /// travel
     
     // this takes the Room so it can check the exits
     public boolean isTravel(Room room) {
@@ -101,12 +103,9 @@ public class Command extends InputGather {
         return false;
     }
     
-    public String getSecondWord() {
-        return secondWord;
-    }
-    
     //// Some utility methods
     
+    //
     private boolean firstWordIn(String[] words) {
         for (String word : words) {
             if (firstWord.equalsIgnoreCase(word)) return true;
@@ -114,6 +113,7 @@ public class Command extends InputGather {
         return false;
     }
 
+    //consider removing
     private boolean secondWordIn(String[] words) {
         for (String word : words) {
             if (secondWord.equalsIgnoreCase(word)) return true;
@@ -122,6 +122,7 @@ public class Command extends InputGather {
     }
 
 
+    // consider removing
     private boolean memberOf(String s, String[] words) {
         for (String word : words) {
             if (s.equalsIgnoreCase(word)) return true;
@@ -129,6 +130,23 @@ public class Command extends InputGather {
         return false;
     }
 
+	//
+	public String getFirstWord() {
+		return firstWord;
+	}
 
+	//
+	public void setFirstWord(String firstWord) {
+		this.firstWord = firstWord;
+	}
 
-} // end class
+	//
+	public String getSecondWord() {
+		return secondWord;
+	}
+
+	//
+	public void setSecondWord(String secondWord) {
+		this.secondWord = secondWord;
+	}
+}

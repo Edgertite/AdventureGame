@@ -5,9 +5,8 @@ import java.util.ArrayList;
 public class Room{
 
     // protected because subclasses can get to it...
-    protected String name;
-    protected String description;
-
+    private String name;
+    private String description;
     private ArrayList<Path> exits;
 
     public Room(String name, String description) {
@@ -15,16 +14,10 @@ public class Room{
         this.description = description;
         this.exits = new ArrayList<Path>();
     }
-    
+
+    //is true in item rooms
     public boolean hasItem(){
     	return false;
-    }
-
-
-    // setters and getters
-        
-    public void setDescription(String description) {
-        this.description = description;
     }
     
     // adds a path from this room
@@ -33,13 +26,11 @@ public class Room{
         getExits().add(path);
     }
 
-
     public void printDescription() {
         System.out.println(description);
         printExits();
     }
 
-    
     ////// Movement
     //////
     
@@ -71,7 +62,6 @@ public class Room{
         return null;
     }
 
-    
     // returns the path object if the argument is a direction to that path.
     // if no such direction exists, returns null.
     public Path getExit (String possibleExit) {
@@ -83,6 +73,7 @@ public class Room{
         return null;
     }
  
+    //
     public void printExits() {
         if (getExits().size() == 0) {
             System.out.println("There are no exits, and therefore no way out of here!");
@@ -105,16 +96,33 @@ public class Room{
         }
     }
 
-        public ArrayList<Path> getExits() {
-                return exits;
-        }
+	//
+	public String getName() {
+		return name;
+	}
 
-        public void setExits(ArrayList<Path> exits) {
-                this.exits = exits;
-        }
- 
+	//
+	public void setName(String name) {
+		this.name = name;
+	}
 
+	//
+	public String getDescription() {
+		return description;
+	}
 
+	//
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
+	//
+	public ArrayList<Path> getExits() {
+		return exits;
+	}
 
+	//
+	public void setExits(ArrayList<Path> exits) {
+		this.exits = exits;
+	}
 } // end Room

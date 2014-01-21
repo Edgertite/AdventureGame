@@ -5,13 +5,14 @@ import PlayOfGame.World;
 
 public class Goal extends Item{
 	
-	public Goal(String name, String description){
+	public Goal(String name, String description) {
 		super(name, description);
 	}
 
 	@Override
-	public boolean use(Player player){
-		World.isPlaying = false;
+	// Wins the game... and ends it.
+	public boolean use(Player player) {
+		World.setPlaying(false);
 		System.out.println("You eat the cheese and find yourself in a sence of peace \n"
 				+ "although its not as fuffilling as you antisipated you feel content. \n"
 				+ "After all that is what inner peace is... right..."

@@ -27,7 +27,6 @@ public class InputGather {
         gatherInput();
     }
 
-
     // this set inputString and inputWords
     public void gatherInput() {
         inputString = InputGather.rawInput.nextLine();  // get the line of user input
@@ -41,19 +40,9 @@ public class InputGather {
         }
     }
 
-    
+    //
     public void printPrompt() {
         System.out.println();
         System.out.print("> ");
-    }
-    
-    
-    public String getInputString() {
-        return inputString;
-    }
-
-    public ArrayList<String> getInputWords() {
-        return inputWords;
-    }
-    
+    }    
 } // end InputGather

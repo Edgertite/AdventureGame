@@ -7,27 +7,23 @@ import Controls.Command;
 import Entity.Player;
 import Items.*;
 
-
 // The world contains the rooms, the player, the items, and where the player is
 public class World {
 
     private ArrayList<Room> rooms;
     private Player thePlayer;
-    
-    public static boolean isPlaying;
+    private static boolean isPlaying;
 
-    
     public static void main(String[] args) {
         World theWorld = new World();
         theWorld.play();
     }
 
-    
-    
     //////
     ////// Setup (populate the world)
     //////
     
+    //TODO CLean up World()
     public World() {
         rooms = new ArrayList<Room>();
         thePlayer = new Player(this);
@@ -98,51 +94,33 @@ public class World {
         kitchen.addExit(corridor, "corridor");
         kitchen.addExit(fridge, "fridge");
         fridge.addExit(kitchen, "back");
-        
-        
-
         // set current position
-        setCurrentRoom(bedroom);
-        
+        thePlayer.setCurrentRoom(bedroom);
     }
 
-    
+    //
     public void addRoom(Room room) {
         rooms.add(room);
-    }
-
-    public Room getCurrentRoom() {
-        return thePlayer.getCurrentRoom();
-    }
-    
-    public void setCurrentRoom(Room room) {
-        thePlayer.setCurrentRoom(room);
-    }
- 
+    } 
 
     //////
     ////// Gameplay
     //////
-        
+   
+    //
     public void play() {
-        
-        isPlaying = true;
+        setPlaying(true);
         printWelcome();
-        
         // ... and start playing!
-        while (isPlaying) {
-            
+        while (isPlaying()) {
             Command turn = new Command(); // read user input
             dispatch(turn);
         }
-        
         //stopped
         printGoodBye();
     }
-    
 
-    
-    
+    //
     private void printWelcome() {
         System.out.println("Welcome to Adventure. ");
         System.out.println("Your goal is to find inner peace, or at least food.");
@@ -155,20 +133,18 @@ public class World {
              "not..."
         );
         System.out.println();
-        getCurrentRoom().printDescription();
+        thePlayer.getCurrentRoom().printDescription();
     }
-    
+
+    //
     private void printGoodBye() {
         System.out.println("Goodbye... Forever...");        
     }
- 
     
     // called by other objects (rooms, player) when they've decided the game should end.
     public void gameOver() {
-        isPlaying = false;
+        setPlaying(false);
     }
-    
-    
     
     /////
     ///// Handle commands
@@ -184,10 +160,8 @@ public class World {
             thePlayer.dispatch(turn);
         }
     }
-    
-    
-    
-    
+
+    //
     private void actionHelp() {
         System.out.println("Try using simple verbs in order to do things. Only one or");
         System.out.println("two words will be recognized.");
@@ -196,11 +170,19 @@ public class World {
         System.out.println("the north. ");
         System.out.println("some commands include: help, inventory, look, quit, take, travel, use");
     }
-    
+
+    //
     private void actionQuit() {
         gameOver();
     }
     
-    
-    
-} // end World class
+	//
+	public static boolean isPlaying() {
+		return isPlaying;
+	}
+	
+	//
+	public static void setPlaying(boolean isPlaying) {
+		World.isPlaying = isPlaying;
+	}
+}

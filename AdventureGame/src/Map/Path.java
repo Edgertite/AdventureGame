@@ -16,6 +16,11 @@ public class Path {
         setDirection(dir);
     }
 
+    // returns the Room that the player traveling this path arrives at
+    public Room travelDestination() {
+        return target;
+    }
+    
     // source Room setter
     public void setSource(Room source) {
         this.source = source;
@@ -45,10 +50,4 @@ public class Path {
     public String getDirection() {
         return direction;
     }
-
-    // returns the Room that the player traveling this path arrives at
-    public Room travelDestination() {
-        return target;
-    }
-    
 }  // end class Path

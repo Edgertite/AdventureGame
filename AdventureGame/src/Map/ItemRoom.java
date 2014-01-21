@@ -1,7 +1,6 @@
 package Map;
 
 import java.util.ArrayList;
-
 import Items.Item;
 
 public class ItemRoom extends Room{
@@ -27,47 +26,10 @@ public class ItemRoom extends Room{
     }
     
     @Override
+    //
     public boolean hasItem(){
-    	return true;
+    	return isHere;
     }
-    
-    ////// Getter / Setters
-    /////
-    
-    public Item getItem() {
- 		return item;
- 	}
-
- 	public void setItem(Item item) {
- 		this.item = item;
- 	}
-
- 	public boolean isHere() {
- 		return isHere;
- 	}
-
- 	public void setHere(boolean isHere) {
- 		this.isHere = isHere;
- 	}
-
- 	public boolean isInfinite() {
- 		return isInfinite;
- 	}
-
- 	public void setInfinite(boolean isInfinite) {
- 		this.isInfinite = isInfinite;
- 	}
-
- 	public boolean isMustTake() {
- 		return mustTake;
- 	}
-
- 	public void setMustTake(boolean mustTake) {
- 		this.mustTake = mustTake;
- 	}
-
- 	
-
     
     // Returns a boolean indicating success at taking the Item . if the item is finite,
     //it will run out. If its out it will return false.
@@ -92,4 +54,44 @@ public class ItemRoom extends Room{
         }
         return null;
     }
+
+	//
+	public Item getItem() {
+		return item;
+	}
+
+	//
+	public void setItem(Item item) {
+		this.item = item;
+	}
+
+	//
+	public boolean isHere() {
+		return isHere;
+	}
+
+	//
+	public void setHere(boolean isHere) {
+		this.isHere = isHere;
+	}
+
+	//
+	public boolean isInfinite() {
+		return isInfinite;
+	}
+
+	//
+	public void setInfinite(boolean isInfinite) {
+		this.isInfinite = isInfinite;
+	}
+
+	//
+	public boolean isMustTake() {
+		return mustTake;
+	}
+
+	//
+	public void setMustTake(boolean mustTake) {
+		this.mustTake = mustTake;
+	}
 }
