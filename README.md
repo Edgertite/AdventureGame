@@ -1,7 +1,7 @@
 ============================
-=======Adventure Game=======
+Adventure Game
 ============================
-=A Project From The Gitters=
+A Project From The Gitters
 ============================
 
 Members of The Gitters:
@@ -14,7 +14,7 @@ Members of The Gitters:
 Others may have contributed parts to this project, but the members of The Gitters are the only ones who are to take credit for this game seeing as it is mostly the work of The Gitters.
 
 ========================================
-=How we would like to see the code look=
+How we would like to see the code look
 ========================================
 
     package Entity;                         // package should be line 1, not 2or anything else
