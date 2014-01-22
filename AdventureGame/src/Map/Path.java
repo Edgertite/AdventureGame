@@ -1,5 +1,7 @@
 package Map;
 
+import Map.Room;
+
 public class Path {
     
 	// A Path is a connection between two rooms, a source Room and a target Room 
@@ -9,15 +11,15 @@ public class Path {
     private Room source;
     private Room target;
     private String direction;
+    private boolean hasLock = false;
     
-    public Path(Room source, Room target, String dir) {
+    public Path(Room source, Room target, String exitName) {
         setSource(source);
         setTarget(target);
-        setDirection(dir);
+        setDirection(exitName);
+        source.addExit(this);
     }
     
-    
-
     
     // source Room setter
     public void setSource(Room source) {
@@ -48,4 +50,10 @@ public class Path {
     public String getDirection() {
         return direction;
     }
+
+
+	//
+	public boolean hasLock() {
+		return hasLock;
+	}
 }  // end class Path

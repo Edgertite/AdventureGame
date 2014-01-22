@@ -21,90 +21,73 @@ public class World {
 
     //////
     ////// Setup (populate the world)
-    //////
-    
-    //TODO CLean up World()
+    //////    
     public World() {
         rooms = new ArrayList<Room>();
         thePlayer = new Player(this);
         
-        
-        
-        Item CHEESE = new Goal(
+        /////// constructs all items
+        //////
+        Goal cheese = new Goal(
         	"cheese",
-        	"WOW! this looks like the secret to my inner peace! Maybe I should eat this..."
-        );
-        
-        
-        //create and set up rooms / items
+        	"WOW! This looks like the secret to my inner peace! Maybe I should eat it...");
+        Item doorKey = new Key(
+            "key",
+            "I think this key will fit into the bedroom door's lock.");
+        /////// constructs all Rooms
+        //////
         Room bedroom = new Room(
-          "bedroom" ,
-          "You are in a strange bedroom. The only reason you know it is a bedroom is \n" +
-          "by the large, rumpled bed against the wall. The pillow resembles a cement block, \n" +
-          "and the sheets sandpaper. The air is stale, and there isn't much of interest here.\n"
-        );
-        addRoom(bedroom);
-
+            "bedroom" ,
+            "You are in a strange bedroom. The only reason you know it is a bedroom is \n" +
+            "by the large, rumpled bed against the wall. The pillow resembles a cement block, \n" +
+            "and the sheets sandpaper. The air is stale, and there isn't much of interest here.\n");
+        rooms.add(bedroom);
         Room corridor = new Room(
-          "The corridor",
-          "You are in a corridor that connects to the kitchen and the bedroom. The carpets are \n" +
-          "stained, the light fixture in the ceiling is just a bare bulb, and there are several \n" +
-          "locked doors along its length.");
-        addRoom(corridor);
-        
-        Item KEY = new Key(
-                "key",
-                "I think this key would fit the lock to the bedroom.",
-                bedroom,
-                corridor,
-                "door"
-            );
-        
-        Room pillow = new ItemRoom(
-            "The pillow",
-            "You walk over to the pillow and peek under it, you see a KEY! This might\n" +
-            "be helpful later!",
-            KEY
-        );
-        addRoom(pillow);
-        
-        
+            "The corridor",
+            "You are in a corridor that connects to the kitchen and the bedroom. The carpets are \n" +
+            "stained, the light fixture in the ceiling is just a bare bulb, and there are several \n" +
+            "locked doors along its length.");
+        rooms.add(corridor);
         Room kitchen = new Room(
-            "The kitchen",
-            "You stand in south end of a large, well used kitchen. At the east end is a \n" +
+       		"The kitchen",
+        	"You stand in south end of a large, well used kitchen. At the east end is a \n" +
             "loudly humming refrigerator with, possibly, the secret to your inner peace. \n" +
             "A cat sits atop the fridge, looking at you in the way only a cat can.");
-        addRoom(kitchen);
-        
-        Room fridge = new ItemRoom(
-            "The fridge",
-            "You open up the ugly looking refrigerator, and see what you where lookin for inside, \n" +
-            "a piece of CHEESE you most definetly should mooch this CHEESE from whoever it once \n" +
-            "belonged to. After all you never know... it just may hold the secret to your inner peace.",
-            CHEESE
-        );
-        addRoom(fridge);
-        
-        //connect the rooms
-        //bedroom.addExit(corridor, "door");     //this exit requires the key
-        bedroom.addExit(pillow, "pillow");
-        pillow.addExit(bedroom, "back");
-        corridor.addExit(bedroom, "bedroom");
-        corridor.addExit(kitchen, "kitchen");
-        kitchen.addExit(corridor, "corridor");
-        kitchen.addExit(fridge, "fridge");
-        fridge.addExit(kitchen, "back");
-        // set current position
+        rooms.add(kitchen);
+        /////// constructs all ItemRooms
+        //////
+        ItemRoom pillow = new ItemRoom(
+                "The pillow",
+                "You walk over to the pillow and peek under it, you see a KEY! This might\n" +
+                "be helpful later!",
+                doorKey
+            );
+        rooms.add(pillow);
+        ItemRoom fridge = new ItemRoom(
+        		"The fridge",
+        		"You open up the ugly looking refrigerator, and see what you where lookin for inside, \n" +
+            	"a piece of CHEESE you most definetly should mooch this CHEESE from whoever it once \n" +
+            	"belonged to. After all you never know... it just may hold the secret to your inner peace.",
+            	cheese
+        	);
+        rooms.add(fridge);
+        /////// constructs all Paths
+        //////
+        Path bedroomPillow = new Path(bedroom, pillow, "pillow");
+        Path pillowBedroom = new Path(pillow, bedroom, "back");
+        Path corridorBedroom = new Path(corridor, bedroom, "bedroom");
+        Path corridorKitchen = new Path(corridor, kitchen, "kitchen");
+        Path kitchenCorridor = new Path(kitchen, corridor, "corridor");
+        Path kitchenFridge= new Path(kitchen, fridge, "fridge");
+        Path fridgeKitchen = new Path(fridge, kitchen, "back");
+        /////// constructs all LockedPaths
+        //////
+        LockedPath bedroomDoor = new LockedPath(bedroom, corridor, "door", ((Key)doorKey));
+        /////// set current position
+        //////
         thePlayer.setCurrentRoom(bedroom);
     }
-
-    //
-    public void addRoom(Room room) {
-        rooms.add(room);
-    } 
-
-    //////
-    ////// Gameplay
+    /////// Gameplay
     //////
    
     //

@@ -2,17 +2,21 @@ package Map;
 
 import java.util.ArrayList;
 
+import Map.LockedPath;
+
 public class Room{
 
     // protected because subclasses can get to it...
     private String name;
     private String description;
     private ArrayList<Path> exits;
+    private ArrayList<LockedPath> lockedExits;
 
     public Room(String name, String description) {
-        this.name = name;
-        this.description = description;
-        this.exits = new ArrayList<Path>();
+        this.setName(name);
+        this.setDescription(description);
+        this.setExits(new ArrayList<Path>());
+        this.setLockedExits(new ArrayList<LockedPath>());
     }
 
     //is true in item rooms
@@ -20,11 +24,15 @@ public class Room{
     	return false;
     }
     
-    // adds a path from this room
-    public void addExit(Room target, String exitName) {
-        Path path = new Path(this, target, exitName);
+    // adds a exit for this room
+    public void addExit(Path path) {
         getExits().add(path);
     }
+    
+    // adds a locked exit for this room
+    public void addLockedExit(LockedPath lockedPath) {
+    	getLockedExits().add(lockedPath);
+	}
 
     public void printDescription() {
         System.out.println(description);
@@ -44,8 +52,13 @@ public class Room{
     
     // Returns a boolean indicating a successful exit. This version
     // does nothing, but subclasses might override this.
-    public boolean exitRoom() {
-        return true;
+    public boolean exitRoom(Path path) {
+    	if (path.hasLock()){
+    		System.out.println("is a lockedpath path is unlocked: "+ ((LockedPath)path).isUnlocked());
+   			return ((LockedPath)path).isUnlocked();
+    	}
+    	System.out.println("is a path");
+    		return true;
     }
 
     // When the player tries to move, it calls its room's tryToMove method.
@@ -55,7 +68,7 @@ public class Room{
         //check if this is a valid direction
         Path path = getExit(direction);
         if (path != null) {
-            if (exitRoom()) {
+            if (exitRoom(path)) {
                 return path.getTarget();
             }
         }
@@ -65,12 +78,18 @@ public class Room{
     // returns the path object if the argument is a direction to that path.
     // if no such direction exists, returns null.
     public Path getExit (String possibleExit) {
-        for (Path p: getExits()) {
+    	Path path = null;
+    	for (Path p: getExits()) {
             if (p.getDirection().equalsIgnoreCase(possibleExit)) {
-                return p;
+                path = p;
             }
         }
-        return null;
+    	for (LockedPath p: getLockedExits()) {
+            if (p.getDirection().equalsIgnoreCase(possibleExit)) {
+                path = p;
+            }
+        }
+        return path;
     }
  
     //
@@ -124,5 +143,15 @@ public class Room{
 	//
 	public void setExits(ArrayList<Path> exits) {
 		this.exits = exits;
+	}
+
+	//
+	public ArrayList<LockedPath> getLockedExits() {
+		return lockedExits;
+	}
+
+	//
+	public void setLockedExits(ArrayList<LockedPath> lockedExits) {
+		this.lockedExits = lockedExits;
 	}
 } // end Room
