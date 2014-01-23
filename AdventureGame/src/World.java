@@ -1,7 +1,7 @@
 public class World {
-    private Room[] rooms = new Room[2];
-    private Door[] doors = new Door[1];
-    private Player player;
+    public static Room[] rooms = new Room[2];
+    public static Door[] doors = new Door[1];
+    public static Player player;
     
     public static void main(String[] args) {
         World theWorld = new World();

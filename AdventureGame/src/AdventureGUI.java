@@ -1,3 +1,4 @@
+
 public class AdventureGUI extends javax.swing.JFrame {
     
 
@@ -7,6 +8,9 @@ public class AdventureGUI extends javax.swing.JFrame {
      */
     public AdventureGUI() {
         initComponents();
+    }
+    public void changeRooms(int room){
+        Player.setCurrentRoom(World.rooms[room]);
     }
 
     /**
@@ -48,10 +52,8 @@ public class AdventureGUI extends javax.swing.JFrame {
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(32, 32, 32));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(600, 800));
         setMinimumSize(new java.awt.Dimension(600, 800));
         setName("window"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(620, 700));
         setResizable(false);
 
         jTextArea1.setEditable(false);
@@ -70,10 +72,23 @@ public class AdventureGUI extends javax.swing.JFrame {
         });
 
         jButton1.setText("jButton1");
+        jButton1.setEnabled(false);
 
-        jButton2.setText("jButton2");
+        jButton2.setText("bedroom");
+        jButton2.setToolTipText("room[0]");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("jButton3");
+        jButton3.setText("intersection");
+        jButton3.setToolTipText("room[1]");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("jButton4");
 
@@ -135,7 +150,7 @@ public class AdventureGUI extends javax.swing.JFrame {
                 .addGroup(jPanelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton6)
                     .addComponent(jButton10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                 .addGroup(jPanelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton7)
                     .addComponent(jButton11))
@@ -199,7 +214,7 @@ public class AdventureGUI extends javax.swing.JFrame {
                         .addComponent(jButtonWest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(73, 73, 73)
                         .addComponent(jButtonEast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
         jPanelTravelLayout.setVerticalGroup(
             jPanelTravelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,7 +242,7 @@ public class AdventureGUI extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addComponent(jTabbedPaneInput, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldRoomName, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,6 +263,14 @@ public class AdventureGUI extends javax.swing.JFrame {
     private void jTextFieldRoomNameActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
     }                                                  
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        changeRooms(0);
+    }                                        
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        changeRooms(1);
+    }                                        
 
     /**
      * @param args the command line arguments
