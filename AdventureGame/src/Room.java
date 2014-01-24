@@ -1,36 +1,19 @@
-import javax.swing.ImageIcon;
-
-/**
- *
- * @author Thomas
- */
 public class Room {
     private String name;
     private String description;
-    private Door[] exits = new Door[4];
-
-    
-
+    private Room[] rooms = new Room[4];
     
     public Room(String name, String description){
         this.name = name;
         this.description = description;
-        //north
-        exits[0] = null;
-        //west
-        exits[1] = null;
-        //east
-        exits[2] = null;
-        //south
-        exits[3] = null;
     }
-    public void addExit(Door door, int i){
-        for (Door d : exits){
-            if (d == null){
-                d = door;
-                return;
-            }
-        }
+    public void addExit(Room room, int i){
+        rooms[i] = room;
+    }
+    
+    public Room getNextRoom(int i){
+        
+        return null;
     }
     
     //Getters and Setters
@@ -46,10 +29,10 @@ public class Room {
     public void setDescription(String description) {
         this.description = description;
     }
-    public Door getExits(int i) {
-        return exits[i];
+        public Room getRooms(int i) {
+        return rooms[i];
     }
-    public void setExits(Door[] exits) {
-        this.exits = exits;
+    public void setRoom(Room room, int i) {
+        this.rooms[i] = room;
     }
 }
