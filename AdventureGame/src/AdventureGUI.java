@@ -24,73 +24,77 @@ public class AdventureGUI extends javax.swing.JFrame {
 
         jSlider1 = new javax.swing.JSlider();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextFieldRoomName = new javax.swing.JTextField();
+        textDescription = new javax.swing.JTextArea();
+        textRoomName = new javax.swing.JTextField();
         jTabbedPaneInput = new javax.swing.JTabbedPane();
         jPanelLook = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        lookButton_0 = new javax.swing.JButton();
+        lookButton_1 = new javax.swing.JButton();
+        lookButton_2 = new javax.swing.JButton();
+        lookButton_3 = new javax.swing.JButton();
         jPanelInventory = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        bagButtonUse_0 = new javax.swing.JButton();
+        bagButtonUse_1 = new javax.swing.JButton();
+        bagButtonUse_2 = new javax.swing.JButton();
+        bagButtonUse_3 = new javax.swing.JButton();
+        bagButtonDrop_0 = new javax.swing.JButton();
+        bagButtonDrop_1 = new javax.swing.JButton();
+        bagButtonDrop_2 = new javax.swing.JButton();
+        bagButtonDrop_3 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jPanelTravel = new javax.swing.JPanel();
         jButtonNorth = new javax.swing.JButton();
         jButtonEast = new javax.swing.JButton();
         jButtonSouth = new javax.swing.JButton();
         jButtonWest = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Adventure Game");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(32, 32, 32));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(600, 800));
+        setMinimumSize(new java.awt.Dimension(400, 400));
         setName("window"); // NOI18N
         setResizable(false);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText(Player.getCurrentRoom().getDescription());
-        jScrollPane1.setViewportView(jTextArea1);
+        textDescription.setEditable(false);
+        textDescription.setColumns(20);
+        textDescription.setRows(5);
+        textDescription.setText(Player.getCurrentRoom().getDescription());
+        jScrollPane1.setViewportView(textDescription);
 
-        jTextFieldRoomName.setEditable(false);
-        jTextFieldRoomName.setText(Player.getCurrentRoom().getName());
-        jTextFieldRoomName.setToolTipText("");
-        jTextFieldRoomName.addActionListener(new java.awt.event.ActionListener() {
+        textRoomName.setEditable(false);
+        textRoomName.setText(Player.getCurrentRoom().getName());
+        textRoomName.setToolTipText("");
+        textRoomName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldRoomNameActionPerformed(evt);
+                textRoomNameActionPerformed(evt);
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.setEnabled(false);
+        lookButton_0.setText("jButton1");
+        lookButton_0.setEnabled(false);
 
-        jButton2.setText("bedroom");
-        jButton2.setToolTipText("room[0]");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        lookButton_1.setText("bedroom");
+        lookButton_1.setToolTipText("room[0]");
+        lookButton_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                lookButton_1ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("intersection");
-        jButton3.setToolTipText("room[1]");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        lookButton_2.setText("intersection");
+        lookButton_2.setToolTipText("room[1]");
+        lookButton_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                lookButton_2ActionPerformed(evt);
             }
         });
 
-        jButton4.setText("jButton4");
+        lookButton_3.setText("jButton4");
 
         javax.swing.GroupLayout jPanelLookLayout = new javax.swing.GroupLayout(jPanelLook);
         jPanelLook.setLayout(jPanelLookLayout);
@@ -98,13 +102,13 @@ public class AdventureGUI extends javax.swing.JFrame {
             jPanelLookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLookLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lookButton_0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lookButton_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lookButton_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lookButton_3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(275, 275, 275))
         );
         jPanelLookLayout.setVerticalGroup(
@@ -112,30 +116,34 @@ public class AdventureGUI extends javax.swing.JFrame {
             .addGroup(jPanelLookLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelLookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addContainerGap(102, Short.MAX_VALUE))
+                    .addComponent(lookButton_0)
+                    .addComponent(lookButton_1)
+                    .addComponent(lookButton_2)
+                    .addComponent(lookButton_3))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         jTabbedPaneInput.addTab("Look Around", jPanelLook);
 
-        jButton5.setText("jButton5");
+        bagButtonUse_0.setText("jButton5");
 
-        jButton6.setText("jButton6");
+        bagButtonUse_1.setText("jButton6");
 
-        jButton7.setText("jButton7");
+        bagButtonUse_2.setText("jButton7");
 
-        jButton8.setText("jButton8");
+        bagButtonUse_3.setText("jButton8");
 
-        jButton9.setText("jButton9");
+        bagButtonDrop_0.setText("jButton9");
 
-        jButton10.setText("jButton10");
+        bagButtonDrop_1.setText("jButton10");
 
-        jButton11.setText("jButton11");
+        bagButtonDrop_2.setText("jButton11");
 
-        jButton12.setText("jButton12");
+        bagButtonDrop_3.setText("jButton12");
+
+        jTextField1.setText("Use an Item:");
+
+        jTextField2.setText("Drop an Item:");
 
         javax.swing.GroupLayout jPanelInventoryLayout = new javax.swing.GroupLayout(jPanelInventory);
         jPanelInventory.setLayout(jPanelInventoryLayout);
@@ -144,38 +152,47 @@ public class AdventureGUI extends javax.swing.JFrame {
             .addGroup(jPanelInventoryLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(86, 86, 86)
-                .addGroup(jPanelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6)
-                    .addComponent(jButton10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
-                .addGroup(jPanelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton7)
-                    .addComponent(jButton11))
-                .addGap(71, 71, 71)
-                .addGroup(jPanelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton8)
-                    .addComponent(jButton12))
-                .addContainerGap())
+                    .addGroup(jPanelInventoryLayout.createSequentialGroup()
+                        .addComponent(bagButtonDrop_0)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bagButtonDrop_1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bagButtonDrop_2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bagButtonDrop_3))
+                    .addGroup(jPanelInventoryLayout.createSequentialGroup()
+                        .addGroup(jPanelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bagButtonUse_0, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bagButtonUse_1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bagButtonUse_2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bagButtonUse_3)))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         jPanelInventoryLayout.setVerticalGroup(
             jPanelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelInventoryLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                    .addComponent(bagButtonUse_0)
+                    .addComponent(bagButtonUse_1)
+                    .addComponent(bagButtonUse_2)
+                    .addComponent(bagButtonUse_3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11)
-                    .addComponent(jButton10)
-                    .addComponent(jButton12)
-                    .addComponent(jButton9))
-                .addGap(23, 23, 23))
+                    .addComponent(bagButtonDrop_2)
+                    .addComponent(bagButtonDrop_1)
+                    .addComponent(bagButtonDrop_3)
+                    .addComponent(bagButtonDrop_0))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jTabbedPaneInput.addTab("Inventory", jPanelInventory);
@@ -197,29 +214,34 @@ public class AdventureGUI extends javax.swing.JFrame {
         jButtonWest.setEnabled(false);
         jButtonWest.setMaximumSize(new java.awt.Dimension(50, 100));
         jButtonWest.setMinimumSize(null);
+        jButtonWest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonWestActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelTravelLayout = new javax.swing.GroupLayout(jPanelTravel);
         jPanelTravel.setLayout(jPanelTravelLayout);
         jPanelTravelLayout.setHorizontalGroup(
             jPanelTravelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTravelLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
                 .addGroup(jPanelTravelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelTravelLayout.createSequentialGroup()
-                        .addGap(230, 230, 230)
+                        .addGap(65, 65, 65)
                         .addGroup(jPanelTravelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonSouth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonNorth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelTravelLayout.createSequentialGroup()
-                        .addGap(165, 165, 165)
                         .addComponent(jButtonWest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(73, 73, 73)
                         .addComponent(jButtonEast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
         jPanelTravelLayout.setVerticalGroup(
             jPanelTravelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTravelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(28, 28, 28)
                 .addComponent(jButtonNorth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTravelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -227,28 +249,54 @@ public class AdventureGUI extends javax.swing.JFrame {
                     .addComponent(jButtonWest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonSouth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jTabbedPaneInput.addTab("Travel", jPanelTravel);
+
+        exitButton.setText("Exit");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(exitButton)
+                .addContainerGap(387, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(exitButton)
+                .addContainerGap(111, Short.MAX_VALUE))
+        );
+
+        jTabbedPaneInput.addTab("Utility", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(textRoomName)
                     .addComponent(jScrollPane1)
-                    .addComponent(jTabbedPaneInput, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldRoomName, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jTabbedPaneInput, javax.swing.GroupLayout.PREFERRED_SIZE, 453, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldRoomName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textRoomName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -260,46 +308,72 @@ public class AdventureGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-    private void jTextFieldRoomNameActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+    private void textRoomNameActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }                                                  
+    }                                            
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void lookButton_1ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         changeRooms(0);
-    }                                        
+    }                                            
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void lookButton_2ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         changeRooms(1);
-    }                                        
+    }                                            
 
+    private void jButtonWestActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+    }                                           
+
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        System.exit(0);
+    }                                          
+
+    private void setRoomButtonNames(javax.swing.JButton button, int i){
+        
+            //button.setText();
+    }
+    private void updateGUI(){
+        textRoomName.setText(Player.currentRoom.getName());
+        textRoomName.setToolTipText(Player.currentRoom.getDescription());
+        //sets all exit names
+        setRoomButtonNames(jButtonNorth, 0);
+        setRoomButtonNames(jButtonWest, 1);
+        setRoomButtonNames(jButtonEast, 2);
+        setRoomButtonNames(jButtonSouth, 3);
+    }
+    
     /**
      * @param args the command line arguments
      */
    
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton bagButtonDrop_0;
+    private javax.swing.JButton bagButtonDrop_1;
+    private javax.swing.JButton bagButtonDrop_2;
+    private javax.swing.JButton bagButtonDrop_3;
+    private javax.swing.JButton bagButtonUse_0;
+    private javax.swing.JButton bagButtonUse_1;
+    private javax.swing.JButton bagButtonUse_2;
+    private javax.swing.JButton bagButtonUse_3;
+    private javax.swing.JButton exitButton;
     private javax.swing.JButton jButtonEast;
     private javax.swing.JButton jButtonNorth;
     private javax.swing.JButton jButtonSouth;
     private javax.swing.JButton jButtonWest;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelInventory;
     private javax.swing.JPanel jPanelLook;
     private javax.swing.JPanel jPanelTravel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JTabbedPane jTabbedPaneInput;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextFieldRoomName;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton lookButton_0;
+    private javax.swing.JButton lookButton_1;
+    private javax.swing.JButton lookButton_2;
+    private javax.swing.JButton lookButton_3;
+    private javax.swing.JTextArea textDescription;
+    private javax.swing.JTextField textRoomName;
     // End of variables declaration                   
 }

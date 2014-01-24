@@ -26,7 +26,7 @@ public class World {
             "Yout walk throught the door, and see a dark room only lit by a stove. \n" + 
             "There are 4 doors in this room, and it looks like there may be a few \n" + 
             "other things worth looking at.");
-        doors[0] = new Door(rooms[0], rooms[1]);
+        doors[0] = new Door(rooms[0], rooms[1], 0);//room 1 is north of room0
         Player.currentRoom = rooms[0];
     }
 }

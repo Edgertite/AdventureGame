@@ -1,8 +1,3 @@
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 import javax.swing.ImageIcon;
 
 /**
@@ -15,15 +10,21 @@ public class Room {
     private Door[] exits = new Door[4];
 
     
+
+    
     public Room(String name, String description){
         this.name = name;
         this.description = description;
+        //north
         exits[0] = null;
+        //west
         exits[1] = null;
+        //east
         exits[2] = null;
+        //south
         exits[3] = null;
     }
-    public void addExit(Door door){
+    public void addExit(Door door, int i){
         for (Door d : exits){
             if (d == null){
                 d = door;
@@ -44,5 +45,11 @@ public class Room {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+    public Door getExits(int i) {
+        return exits[i];
+    }
+    public void setExits(Door[] exits) {
+        this.exits = exits;
     }
 }
