@@ -20,10 +20,10 @@ public class World {
         		"You wake up in a dressing room with your hair messed up and clothes all crumpled. You look at your watch and see it is 5 in the morning. You think you blacked out and you don't know how you got there but you reach to empty your pockets.You find a cookie connection coupon that has todays date. Then you realize you have to get to work at cookie connection. As you take in your surroundings you see a shiny key in the corner that looks like it could be useful. You start to get dizzy and your stomach is growling. You must get enough food and drinks before you pass out so you can make it to work on time to deliver Mr. Amalongs chocolate chip cookies.");
         rooms[1] = new Room(
         		"Dressing Room corridor",
-        		"You step into the dressing room corridor and you see a wallet that has your name on it. You see a banana on the ground and decide it will have to do for now. You see two more         dressing rooms and an exit to H&M.");
+        		"You step into the dressing room corridor and you see a wallet that has your name on it. You see a banana on the ground and decide it will have to do for now. You see two more dressing rooms and an exit.");
         rooms[2] = new Room(
         		"Dressing Room",
-        		"You are in the dressing and see a soggy sandwich on the floor but that has never stopped you before.");
+        		"You are in a dressing room.");
         rooms[3] = new Room(
         		"Dressing Room",
         		"You are in a dressing room.");
